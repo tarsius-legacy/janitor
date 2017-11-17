@@ -36,6 +36,7 @@
 (defvar janitor-org "emacsjanitors")
 (defvar janitor-remote "janitor")
 
+;;;###autoload
 (defun janitor-clone (name)
   (interactive (list (epkg-read-package "Clone: " (thing-at-point 'filename))))
   (let* ((base "/tmp/janitor/")
@@ -46,6 +47,7 @@
     (let ((default-directory repo))
       (call-interactively 'janitor-setup-branch))))
 
+;;;###autoload
 (defun janitor-setup-branch (user name branch)
   (interactive
    (list (nth 3 (split-string (magit-get "remote.origin.url") "[@:/.]"))
@@ -77,6 +79,7 @@
   (magit-set janitor-remote "branch" branch "pushRemote")
   (magit-refresh))
 
+;;;###autoload
 (defun janitor-open-pull-request (user name branch)
   (interactive
    (list (nth 3 (split-string (magit-get "remote.origin.url") "[@:/.]"))
