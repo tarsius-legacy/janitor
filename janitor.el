@@ -36,6 +36,8 @@
 (defvar janitor-org "emacsjanitors")
 (defvar janitor-remote "janitor")
 
+(defvar janitor-github-token-scopes '(repo))
+
 ;;;###autoload
 (defun janitor-clone (name)
   (interactive (list (epkg-read-package "Clone: " (thing-at-point 'filename))))
@@ -60,11 +62,14 @@
   (unless (cl-find-if (lambda (fork)
                         (equal (cdr (assq 'login (cdr (assq 'owner fork))))
                                janitor-org))
-                      (ghub-get (format "/repos/%s/%s/forks" user name)))
+                      (ghub-get (format "/repos/%s/%s/forks" user name)
+                                nil :auth 'janitor))
     (message "Forking...")
     (ghub-post (format "/repos/%s/%s/forks" user name)
-               nil `((organization . ,janitor-org)))
-    (ghub-wait (format "/repos/%s/%s" janitor-org name))
+               `((organization . ,janitor-org))
+               :auth 'janitor)
+    (ghub-wait (format "/repos/%s/%s" janitor-org name)
+               nil :auth 'janitor)
     (message "Forking...done"))
   (unless (magit-remote-p janitor-remote)
     (message "Adding remote...")
