@@ -90,7 +90,7 @@
   (unless (equal branch (magit-get-current-branch))
     (if (magit-branch-p branch)
         (magit-call-git "checkout" branch)
-      (let ((inhibit-magit-refresh t))
+      (let ((magit-inhibit-refresh t))
         (magit-branch-spinoff branch))))
   (magit-set janitor-remote "branch" branch "pushRemote")
   (magit-refresh))
