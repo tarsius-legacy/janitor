@@ -8,6 +8,7 @@
 
 ;; Package-Requires: (
 ;;     (emacs "28.1")
+;;     (compat "28.1.1.0")
 ;;     (epkg "3.3.3")
 ;;     (ghub "3.5.5")
 ;;     (magit "3.3.0"))
@@ -36,6 +37,8 @@
 ;; will discard all that when I create the "Initial import".
 
 ;;; Code:
+
+(require 'compat)
 
 (require 'epkg)
 (require 'ghub)
