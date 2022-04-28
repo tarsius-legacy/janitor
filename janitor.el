@@ -1,28 +1,31 @@
-;;; janitor.el --- fix other people's warnings
+;;; janitor.el --- Fix other people's warnings  -*- lexical-binding:t -*-
 
-;; Copyright (C) 2017  Jonas Bernoulli
+;; Copyright (C) 2017-2022 Jonas Bernoulli
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
-;; Homepage: https://gitlab.com/emacsjanitors/janitor
+;; Homepage: https://github.com/emacsjanitors/janitor
+;; Keywords: local
 
-;; This file is not part of GNU Emacs.
+;; Package-Requires: ((emacs "28.1"))
 
-;; This file is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 3, or (at your option)
-;; any later version.
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
+;; This file is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published
+;; by the Free Software Foundation, either version 3 of the License,
+;; or (at your option) any later version.
+;;
 ;; This file is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-
-;; For a full copy of the GNU General Public License
-;; see <http://www.gnu.org/licenses/>.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-;; Fix other peoples warnings.
+;; Fix other people's warnings.
 
 ;; Note that the first commit is named "Initial dump".  It will be
 ;; followed by commits described simply as "wip" and eventually I
@@ -93,6 +96,7 @@
   (browse-url (format "https://github.com/%s/%s/compare/master...%s:%s"
                       user name janitor-org branch)))
 
+;;; _
 (provide 'janitor)
 ;; Local Variables:
 ;; indent-tabs-mode: nil
