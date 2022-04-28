@@ -6,7 +6,11 @@
 ;; Homepage: https://github.com/emacsjanitors/janitor
 ;; Keywords: local
 
-;; Package-Requires: ((emacs "28.1"))
+;; Package-Requires: (
+;;     (emacs "28.1")
+;;     (epkg "3.3.3")
+;;     (ghub "3.5.5")
+;;     (magit "3.3.0"))
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -33,6 +37,7 @@
 
 ;;; Code:
 
+(require 'epkg)
 (require 'ghub)
 (require 'magit)
 
